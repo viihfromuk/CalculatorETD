@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de ETD</title>
+  <style>
+    body {
+      background-color: #FFFACD;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Monospace, sans-serif;
+    }
+
+    .calculator {
+      border: 2px solid black;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #B0E0E6;
+      text-align: center;
+      max-width: 400px;
+    }
+
+    .input-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px 0;
+    }
+
+    label {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <h1>Calculadora de ETD</h1>
+    <div class="input-container">
+      <label for="value1"> ETD 00:00 </label>
+      <input type="number" id="value1">
+      <p id="result1"></p>
+    </div>
+
+    <div class="input-container">
+      <label for="value2">Valor 2:</label>
+      <input type="number" id="value2">
+      <p id="result2"></p>
+    </div>
+
+    <div class="input-container">
+      <label for="value3">Valor 3:</label>
+      <input type="number" id="value3">
+      <p id="result3"></p>
+    </div>
+
+    <div class="input-container">
+      <label for="value4">Valor 4:</label>
+      <input type="number" id="value4">
+      <p id="result4"></p>
+    </div>
+
+    <div class="input-container">
+      <label for="value5">Valor 5:</label>
+      <input type="number" id="value5">
+      <p id="result5"></p>
+    </div>
+
+    <button onclick="calculate()">Calcular</button>
+
+    <p id="result"></p>
+
+    <script>
+      function calculate() {
+        const values = [];
+        for (let i = 1; i <= 5; i++) {
+          const value = parseFloat(document.getElementById('value' + i).value);
+          values.push(value);
+
+          const result = 0.005 * value;
+          document.getElementById('result' + i).innerText = `  =    ${Math.round(result)}`;
+        }
+      }
+    </script>
+  </div>
+</body>
+</html>
